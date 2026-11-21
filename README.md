@@ -11,7 +11,7 @@ Analisis perilaku pelanggan Netflix untuk memahami faktor yang berkaitan dengan 
 - `data_bersih.csv` - dataset hasil pemrosesan, termasuk kelompok ketidakaktifan dan segmentasi pelanggan.
 - `app.py` - dashboard Streamlit untuk memfilter tipe langganan dan melihat churn rate.
 - `requirements.txt` - dependensi Python untuk menjalankan dashboard dan deploy di Streamlit Community Cloud.
-- `archive (7).zip` - arsip asli dataset mentah.
+
 
 ## Temuan Utama
 
