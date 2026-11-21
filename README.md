@@ -2,6 +2,8 @@
 
 Analisis perilaku pelanggan Netflix untuk memahami faktor yang berkaitan dengan churn, membandingkan model klasifikasi, melakukan segmentasi pelanggan dengan clustering, dan menyajikan ringkasan interaktif melalui dashboard Streamlit.
 
+**Aplikasi live:** [Buka Netflix Customer Churn Dashboard](https://fixmycodenow-netflix-customer-churn-app-qqekf7.streamlit.app/)
+
 ## Isi Proyek
 
 - `Netflix_Customer_Churn.ipynb` - eksplorasi data, analisis churn, klasifikasi, SHAP, dan segmentasi K-Means.
