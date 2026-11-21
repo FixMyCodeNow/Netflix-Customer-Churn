@@ -8,6 +8,7 @@ Analisis perilaku pelanggan Netflix untuk memahami faktor yang berkaitan dengan 
 - `netflix_customer_churn.csv` - dataset mentah berisi 5.000 pelanggan.
 - `data_bersih.csv` - dataset hasil pemrosesan, termasuk kelompok ketidakaktifan dan segmentasi pelanggan.
 - `app.py` - dashboard Streamlit untuk memfilter tipe langganan dan melihat churn rate.
+- `requirements.txt` - dependensi Python untuk menjalankan dashboard dan deploy di Streamlit Community Cloud.
 - `archive (7).zip` - arsip asli dataset mentah.
 
 ## Temuan Utama
@@ -44,7 +45,7 @@ K-Means membandingkan 2 sampai 6 cluster menggunakan `watch_hours`, `avg_watch_t
 | 2 | 23.88 | 9.36 | 1.92 | 0% |
 | 3 | 35.09 | 1.44 | 33.40 | 3% |
 
-## Instalasi
+## Instalasi Lokal
 
 Syarat: Python 3.10 atau versi yang lebih baru.
 
@@ -54,7 +55,7 @@ cd Netflix-Customer-Churn
 
 python -m venv .venv
 source .venv/bin/activate
-pip install pandas numpy matplotlib scikit-learn xgboost shap plotly streamlit jupyter
+pip install -r requirements.txt
 ```
 
 Untuk Windows, aktifkan environment virtual dengan:
@@ -63,9 +64,7 @@ Untuk Windows, aktifkan environment virtual dengan:
 .venv\Scripts\activate
 ```
 
-## Menjalankan Dashboard
-
-Pastikan terminal berada pada direktori proyek, lalu jalankan:
+Kemudian jalankan dashboard:
 
 ```bash
 streamlit run app.py
@@ -73,10 +72,19 @@ streamlit run app.py
 
 Dashboard menyediakan filter tipe langganan, kartu churn rate, jumlah pelanggan, dan grafik churn berdasarkan tipe langganan.
 
+## Deploy ke Streamlit Community Cloud
+
+1. Pastikan repository berisi `app.py`, `requirements.txt`, dan `data_bersih.csv` di branch yang akan dideploy.
+2. Buka [Streamlit Community Cloud](https://share.streamlit.io/) dan hubungkan akun GitHub.
+3. Pilih **Create app**, lalu pilih repository `FixMyCodeNow/Netflix-Customer-Churn`, branch `main`, dan file utama `app.py`.
+4. Klik **Deploy**. Streamlit akan memasang dependensi dari `requirements.txt` dan menjalankan aplikasi.
+
+Jika file utama atau branch berbeda, sesuaikan pilihannya sebelum deploy. `requirements.txt` harus berada di root repository agar terdeteksi otomatis.
+
 ## Menjalankan Notebook
 
 ```bash
 jupyter notebook Netflix_Customer_Churn.ipynb
 ```
 
-Jalankan sel notebook secara berurutan agar variabel `df`, data latih/uji, model, dan hasil segmentasi tersedia saat bagian berikutnya dieksekusi.
+Notebook analisis menggunakan beberapa paket tambahan yang tidak diperlukan oleh dashboard. Jika ingin menjalankan seluruh notebook, pasang juga dependensi analisis seperti `numpy`, `matplotlib`, `scikit-learn`, `xgboost`, `shap`, dan `jupyter`.
